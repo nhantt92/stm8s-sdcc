@@ -211,9 +211,9 @@ _CLK_GetClockFreq:
 ;	lib/stm8s_clk.c: 99: clocksource = (CLK_Source_TypeDef)CLK->CMSR;
 	ldw	x, #0x50c3
 	ld	a, (x)
-	ld	(0x05, sp), a
+	ld	(0x01, sp), a
 ;	lib/stm8s_clk.c: 100: if (clocksource == CLK_SOURCE_HSI)
-	ld	a, (0x05, sp)
+	ld	a, (0x01, sp)
 	cp	a, #0xe1
 	jrne	00105$
 ;	lib/stm8s_clk.c: 102: tmp = (uint8_t)(CLK->CKDIVR & CLK_CKDIVR_HSIDIV);
@@ -243,26 +243,26 @@ _CLK_GetClockFreq:
 	push	#0x00
 	call	__divulong
 	addw	sp, #8
-	ldw	(0x03, sp), x
+	ldw	(0x04, sp), x
 	jra	00106$
 00105$:
 ;	lib/stm8s_clk.c: 107: else if ( clocksource == CLK_SOURCE_LSI)
-	ld	a, (0x05, sp)
+	ld	a, (0x01, sp)
 	cp	a, #0xd2
 	jrne	00102$
 ;	lib/stm8s_clk.c: 109: clockfrequency = LSI_VALUE;
 	ldw	x, #0xf400
-	ldw	(0x03, sp), x
+	ldw	(0x04, sp), x
 	ldw	y, #0x0001
 	jra	00106$
 00102$:
 ;	lib/stm8s_clk.c: 113: clockfrequency = HSE_VALUE;
 	ldw	x, #0x2400
-	ldw	(0x03, sp), x
+	ldw	(0x04, sp), x
 	ldw	y, #0x00f4
 00106$:
 ;	lib/stm8s_clk.c: 115: return((uint32_t)clockfrequency);
-	ldw	x, (0x03, sp)
+	ldw	x, (0x04, sp)
 	addw	sp, #7
 	ret
 	.area CODE

@@ -53,24 +53,24 @@
       00830D 52 07            [ 2]   53 	sub	sp, #7
                                      54 ;	lib/stm8s_gpio.c: 16: GPIOx->ODR = GPIO_ODR_RESET_VALUE; /* Reset Output Data Register */
       00830F 16 0A            [ 2]   55 	ldw	y, (0x0a, sp)
-      008311 17 03            [ 2]   56 	ldw	(0x03, sp), y
-      008313 1E 03            [ 2]   57 	ldw	x, (0x03, sp)
+      008311 17 01            [ 2]   56 	ldw	(0x01, sp), y
+      008313 1E 01            [ 2]   57 	ldw	x, (0x01, sp)
       008315 7F               [ 1]   58 	clr	(x)
                                      59 ;	lib/stm8s_gpio.c: 17: GPIOx->DDR = GPIO_DDR_RESET_VALUE; /* Reset Data Direction Register */
-      008316 1E 03            [ 2]   60 	ldw	x, (0x03, sp)
+      008316 1E 01            [ 2]   60 	ldw	x, (0x01, sp)
       008318 5C               [ 2]   61 	incw	x
       008319 5C               [ 2]   62 	incw	x
-      00831A 1F 01            [ 2]   63 	ldw	(0x01, sp), x
-      00831C 1E 01            [ 2]   64 	ldw	x, (0x01, sp)
+      00831A 1F 06            [ 2]   63 	ldw	(0x06, sp), x
+      00831C 1E 06            [ 2]   64 	ldw	x, (0x06, sp)
       00831E 7F               [ 1]   65 	clr	(x)
                                      66 ;	lib/stm8s_gpio.c: 18: GPIOx->CR1 = GPIO_CR1_RESET_VALUE; /* Reset Control Register 1 */
-      00831F 1E 03            [ 2]   67 	ldw	x, (0x03, sp)
+      00831F 1E 01            [ 2]   67 	ldw	x, (0x01, sp)
       008321 1C 00 03         [ 2]   68 	addw	x, #0x0003
-      008324 1F 05            [ 2]   69 	ldw	(0x05, sp), x
-      008326 1E 05            [ 2]   70 	ldw	x, (0x05, sp)
+      008324 1F 03            [ 2]   69 	ldw	(0x03, sp), x
+      008326 1E 03            [ 2]   70 	ldw	x, (0x03, sp)
       008328 7F               [ 1]   71 	clr	(x)
                                      72 ;	lib/stm8s_gpio.c: 19: GPIOx->CR2 = GPIO_CR2_RESET_VALUE; /* Reset Control Register 2 */
-      008329 16 03            [ 2]   73 	ldw	y, (0x03, sp)
+      008329 16 01            [ 2]   73 	ldw	y, (0x01, sp)
       00832B 72 A9 00 04      [ 2]   74 	addw	y, #0x0004
       00832F 90 7F            [ 1]   75 	clr	(y)
                                      76 ;	lib/stm8s_gpio.c: 22: GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin)); /* Reset corresponding bit to GPIO_Pin in CR2 register */
@@ -78,9 +78,9 @@
       008333 88               [ 1]   78 	push	a
       008334 7B 0D            [ 1]   79 	ld	a, (0x0d, sp)
       008336 43               [ 1]   80 	cpl	a
-      008337 6B 08            [ 1]   81 	ld	(0x08, sp), a
+      008337 6B 06            [ 1]   81 	ld	(0x06, sp), a
       008339 84               [ 1]   82 	pop	a
-      00833A 14 07            [ 1]   83 	and	a, (0x07, sp)
+      00833A 14 05            [ 1]   83 	and	a, (0x05, sp)
       00833C 90 F7            [ 1]   84 	ld	(y), a
                                      85 ;	lib/stm8s_gpio.c: 27: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x80) != (uint8_t)0x00) /* Output mode */
       00833E 0D 0D            [ 1]   86 	tnz	(0x0d, sp)
@@ -90,33 +90,33 @@
       008344 A5 10            [ 1]   90 	bcp	a, #0x10
       008346 27 0A            [ 1]   91 	jreq	00102$
                                      92 ;	lib/stm8s_gpio.c: 31: GPIOx->ODR |= (uint8_t)GPIO_Pin;
-      008348 1E 03            [ 2]   93 	ldw	x, (0x03, sp)
+      008348 1E 01            [ 2]   93 	ldw	x, (0x01, sp)
       00834A F6               [ 1]   94 	ld	a, (x)
       00834B 1A 0C            [ 1]   95 	or	a, (0x0c, sp)
-      00834D 1E 03            [ 2]   96 	ldw	x, (0x03, sp)
+      00834D 1E 01            [ 2]   96 	ldw	x, (0x01, sp)
       00834F F7               [ 1]   97 	ld	(x), a
       008350 20 08            [ 2]   98 	jra	00103$
       008352                         99 00102$:
                                     100 ;	lib/stm8s_gpio.c: 35: GPIOx->ODR &= (uint8_t)(~(GPIO_Pin));
-      008352 1E 03            [ 2]  101 	ldw	x, (0x03, sp)
+      008352 1E 01            [ 2]  101 	ldw	x, (0x01, sp)
       008354 F6               [ 1]  102 	ld	a, (x)
-      008355 14 07            [ 1]  103 	and	a, (0x07, sp)
-      008357 1E 03            [ 2]  104 	ldw	x, (0x03, sp)
+      008355 14 05            [ 1]  103 	and	a, (0x05, sp)
+      008357 1E 01            [ 2]  104 	ldw	x, (0x01, sp)
       008359 F7               [ 1]  105 	ld	(x), a
       00835A                        106 00103$:
                                     107 ;	lib/stm8s_gpio.c: 38: GPIOx->DDR |= (uint8_t)GPIO_Pin;
-      00835A 1E 01            [ 2]  108 	ldw	x, (0x01, sp)
+      00835A 1E 06            [ 2]  108 	ldw	x, (0x06, sp)
       00835C F6               [ 1]  109 	ld	a, (x)
       00835D 1A 0C            [ 1]  110 	or	a, (0x0c, sp)
-      00835F 1E 01            [ 2]  111 	ldw	x, (0x01, sp)
+      00835F 1E 06            [ 2]  111 	ldw	x, (0x06, sp)
       008361 F7               [ 1]  112 	ld	(x), a
       008362 20 08            [ 2]  113 	jra	00106$
       008364                        114 00105$:
                                     115 ;	lib/stm8s_gpio.c: 43: GPIOx->DDR &= (uint8_t)(~(GPIO_Pin));
-      008364 1E 01            [ 2]  116 	ldw	x, (0x01, sp)
+      008364 1E 06            [ 2]  116 	ldw	x, (0x06, sp)
       008366 F6               [ 1]  117 	ld	a, (x)
-      008367 14 07            [ 1]  118 	and	a, (0x07, sp)
-      008369 1E 01            [ 2]  119 	ldw	x, (0x01, sp)
+      008367 14 05            [ 1]  118 	and	a, (0x05, sp)
+      008369 1E 06            [ 2]  119 	ldw	x, (0x06, sp)
       00836B F7               [ 1]  120 	ld	(x), a
       00836C                        121 00106$:
                                     122 ;	lib/stm8s_gpio.c: 48: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x40) != (uint8_t)0x00) /* Pull-Up or Push-Pull */
@@ -124,18 +124,18 @@
       00836E A5 40            [ 1]  124 	bcp	a, #0x40
       008370 27 0A            [ 1]  125 	jreq	00108$
                                     126 ;	lib/stm8s_gpio.c: 50: GPIOx->CR1 |= (uint8_t)GPIO_Pin;
-      008372 1E 05            [ 2]  127 	ldw	x, (0x05, sp)
+      008372 1E 03            [ 2]  127 	ldw	x, (0x03, sp)
       008374 F6               [ 1]  128 	ld	a, (x)
       008375 1A 0C            [ 1]  129 	or	a, (0x0c, sp)
-      008377 1E 05            [ 2]  130 	ldw	x, (0x05, sp)
+      008377 1E 03            [ 2]  130 	ldw	x, (0x03, sp)
       008379 F7               [ 1]  131 	ld	(x), a
       00837A 20 08            [ 2]  132 	jra	00109$
       00837C                        133 00108$:
                                     134 ;	lib/stm8s_gpio.c: 54: GPIOx->CR1 &= (uint8_t)(~(GPIO_Pin));
-      00837C 1E 05            [ 2]  135 	ldw	x, (0x05, sp)
+      00837C 1E 03            [ 2]  135 	ldw	x, (0x03, sp)
       00837E F6               [ 1]  136 	ld	a, (x)
-      00837F 14 07            [ 1]  137 	and	a, (0x07, sp)
-      008381 1E 05            [ 2]  138 	ldw	x, (0x05, sp)
+      00837F 14 05            [ 1]  137 	and	a, (0x05, sp)
+      008381 1E 03            [ 2]  138 	ldw	x, (0x03, sp)
       008383 F7               [ 1]  139 	ld	(x), a
       008384                        140 00109$:
                                     141 ;	lib/stm8s_gpio.c: 59: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x20) != (uint8_t)0x00) /* Interrupt or Slow slope */
@@ -150,7 +150,7 @@
       008392                        150 00111$:
                                     151 ;	lib/stm8s_gpio.c: 65: GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin));
       008392 90 F6            [ 1]  152 	ld	a, (y)
-      008394 14 07            [ 1]  153 	and	a, (0x07, sp)
+      008394 14 05            [ 1]  153 	and	a, (0x05, sp)
       008396 90 F7            [ 1]  154 	ld	(y), a
       008398                        155 00113$:
       008398 5B 07            [ 2]  156 	addw	sp, #7

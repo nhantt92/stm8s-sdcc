@@ -197,54 +197,54 @@
       00815E 1E 0E            [ 2]  197 	ldw	x, (0x0e, sp)
       008160 5C               [ 2]  198 	incw	x
       008161 5C               [ 2]  199 	incw	x
-      008162 1F 0A            [ 2]  200 	ldw	(0x0a, sp), x
-      008164 1E 0A            [ 2]  201 	ldw	x, (0x0a, sp)
+      008162 1F 06            [ 2]  200 	ldw	(0x06, sp), x
+      008164 1E 06            [ 2]  201 	ldw	x, (0x06, sp)
       008166 E6 03            [ 1]  202 	ld	a, (0x3, x)
-      008168 6B 08            [ 1]  203 	ld	(0x08, sp), a
+      008168 6B 05            [ 1]  203 	ld	(0x05, sp), a
       00816A E6 02            [ 1]  204 	ld	a, (0x2, x)
-      00816C 6B 07            [ 1]  205 	ld	(0x07, sp), a
+      00816C 6B 04            [ 1]  205 	ld	(0x04, sp), a
       00816E FE               [ 2]  206 	ldw	x, (x)
-      00816F 1F 05            [ 2]  207 	ldw	(0x05, sp), x
+      00816F 1F 02            [ 2]  207 	ldw	(0x02, sp), x
       008171 CE 00 07         [ 2]  208 	ldw	x, _timeTickMs+2
-      008174 72 F0 07         [ 2]  209 	subw	x, (0x07, sp)
+      008174 72 F0 04         [ 2]  209 	subw	x, (0x04, sp)
       008177 C6 00 06         [ 1]  210 	ld	a, _timeTickMs+1
-      00817A 12 06            [ 1]  211 	sbc	a, (0x06, sp)
+      00817A 12 03            [ 1]  211 	sbc	a, (0x03, sp)
       00817C 88               [ 1]  212 	push	a
       00817D C6 00 05         [ 1]  213 	ld	a, _timeTickMs+0
-      008180 12 06            [ 1]  214 	sbc	a, (0x06, sp)
-      008182 6B 02            [ 1]  215 	ld	(0x02, sp), a
+      008180 12 03            [ 1]  214 	sbc	a, (0x03, sp)
+      008182 6B 09            [ 1]  215 	ld	(0x09, sp), a
       008184 84               [ 1]  216 	pop	a
       008185 88               [ 1]  217 	push	a
       008186 13 13            [ 2]  218 	cpw	x, (0x13, sp)
       008188 84               [ 1]  219 	pop	a
       008189 12 11            [ 1]  220 	sbc	a, (0x11, sp)
-      00818B 7B 01            [ 1]  221 	ld	a, (0x01, sp)
+      00818B 7B 08            [ 1]  221 	ld	a, (0x08, sp)
       00818D 12 10            [ 1]  222 	sbc	a, (0x10, sp)
       00818F 4F               [ 1]  223 	clr	a
       008190 49               [ 1]  224 	rlc	a
-      008191 6B 09            [ 1]  225 	ld	(0x09, sp), a
-      008193 1E 07            [ 2]  226 	ldw	x, (0x07, sp)
+      008191 6B 01            [ 1]  225 	ld	(0x01, sp), a
+      008193 1E 04            [ 2]  226 	ldw	x, (0x04, sp)
       008195 C3 00 07         [ 2]  227 	cpw	x, _timeTickMs+2
-      008198 7B 06            [ 1]  228 	ld	a, (0x06, sp)
+      008198 7B 03            [ 1]  228 	ld	a, (0x03, sp)
       00819A C2 00 06         [ 1]  229 	sbc	a, _timeTickMs+1
-      00819D 7B 05            [ 1]  230 	ld	a, (0x05, sp)
+      00819D 7B 02            [ 1]  230 	ld	a, (0x02, sp)
       00819F C2 00 05         [ 1]  231 	sbc	a, _timeTickMs+0
       0081A2 24 04            [ 1]  232 	jrnc	00105$
-      0081A4 0D 09            [ 1]  233 	tnz	(0x09, sp)
+      0081A4 0D 01            [ 1]  233 	tnz	(0x01, sp)
       0081A6 27 15            [ 1]  234 	jreq	00101$
       0081A8                        235 00105$:
       0081A8 CE 00 07         [ 2]  236 	ldw	x, _timeTickMs+2
-      0081AB 13 07            [ 2]  237 	cpw	x, (0x07, sp)
+      0081AB 13 04            [ 2]  237 	cpw	x, (0x04, sp)
       0081AD C6 00 06         [ 1]  238 	ld	a, _timeTickMs+1
-      0081B0 12 06            [ 1]  239 	sbc	a, (0x06, sp)
+      0081B0 12 03            [ 1]  239 	sbc	a, (0x03, sp)
       0081B2 C6 00 05         [ 1]  240 	ld	a, _timeTickMs+0
-      0081B5 12 05            [ 1]  241 	sbc	a, (0x05, sp)
+      0081B5 12 02            [ 1]  241 	sbc	a, (0x02, sp)
       0081B7 24 14            [ 1]  242 	jrnc	00102$
-      0081B9 0D 09            [ 1]  243 	tnz	(0x09, sp)
+      0081B9 0D 01            [ 1]  243 	tnz	(0x01, sp)
       0081BB 26 10            [ 1]  244 	jrne	00102$
       0081BD                        245 00101$:
                                     246 ;	user/timerTick.c: 58: pTime->timeMS = timeTickMs;
-      0081BD 1E 0A            [ 2]  247 	ldw	x, (0x0a, sp)
+      0081BD 1E 06            [ 2]  247 	ldw	x, (0x06, sp)
       0081BF 90 CE 00 07      [ 2]  248 	ldw	y, _timeTickMs+2
       0081C3 EF 02            [ 2]  249 	ldw	(0x2, x), y
       0081C5 90 CE 00 05      [ 2]  250 	ldw	y, _timeTickMs+0

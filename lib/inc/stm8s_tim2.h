@@ -1,45 +1,19 @@
-/**
-  ******************************************************************************
-  * @file    stm8s_tim2.h
-  * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the TIM2 peripheral.
-   ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
-
-/* Define to prevent recursive inclusion -------------------------------------*/
+/*
+*******************************************
+* @file     stm8s_tim2.c
+* @author   nhantt
+* @version  V1.0.0
+* @date     1-September-2017
+* @brief    This file brief for save memory used build with SDCC
+*********************************************
+*/
 #ifndef __STM8S_TIM2_H
 #define __STM8S_TIM2_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 
-/** @addtogroup STM8S_StdPeriph_Driver
-  * @{
-  */
-
-/* Exported types ------------------------------------------------------------*/
-
-
-/** TIM2 Forced Action */
+/* TIM2 Forced Action */
 typedef enum
 {
   TIM2_FORCEDACTION_ACTIVE           = ((uint8_t)0x50),
@@ -270,17 +244,8 @@ typedef enum
 
 #define IS_TIM2_CLEAR_FLAG_OK(FLAG) ((((uint16_t)(FLAG) & 0xF1F0) == 0x0000) && ((uint16_t)(FLAG) != 0x0000))
                                     
-/**
-  * @}
-  */
 
-/* Exported macro ------------------------------------------------------------*/
-
-/* Exported functions --------------------------------------------------------*/
-
-/** @addtogroup TIM2_Exported_Functions
-  * @{
-  */
+/* TIM2_Exported_Functions */
 
 void TIM2_DeInit(void);
 void TIM2_TimeBaseInit(TIM2_Prescaler_TypeDef TIM2_Prescaler, uint16_t TIM2_Period);
@@ -328,15 +293,6 @@ void TIM2_ClearFlag(TIM2_FLAG_TypeDef TIM2_FLAG);
 ITStatus TIM2_GetITStatus(TIM2_IT_TypeDef TIM2_IT);
 void TIM2_ClearITPendingBit(TIM2_IT_TypeDef TIM2_IT);
 
-/**
-  * @}
-  */
-
 #endif /* __STM8S_TIM2_H */
-
-/**
-  * @}
-  */
-  
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

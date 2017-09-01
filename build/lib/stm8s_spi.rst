@@ -358,7 +358,7 @@
       008532 26 FB            [ 1]  358 	jrne	00115$
       008534                        359 00116$:
       008534 84               [ 1]  360 	pop	a
-      008535 6B 03            [ 1]  361 	ld	(0x03, sp), a
+      008535 6B 02            [ 1]  361 	ld	(0x02, sp), a
                                     362 ;	lib/stm8s_spi.c: 207: itmask1 = (uint8_t)((uint8_t)SPI_IT >> (uint8_t)4);
       008537 7B 06            [ 1]  363 	ld	a, (0x06, sp)
       008539 4E               [ 1]  364 	swap	a
@@ -376,16 +376,16 @@
       008547 26 FB            [ 1]  376 	jrne	00117$
       008549                        377 00118$:
       008549 84               [ 1]  378 	pop	a
-      00854A 6B 02            [ 1]  379 	ld	(0x02, sp), a
+      00854A 6B 03            [ 1]  379 	ld	(0x03, sp), a
                                     380 ;	lib/stm8s_spi.c: 211: enablestatus = (uint8_t)((uint8_t)SPI->SR & itmask2);
       00854C AE 52 03         [ 2]  381 	ldw	x, #0x5203
       00854F F6               [ 1]  382 	ld	a, (x)
-      008550 14 02            [ 1]  383 	and	a, (0x02, sp)
+      008550 14 03            [ 1]  383 	and	a, (0x03, sp)
       008552 6B 01            [ 1]  384 	ld	(0x01, sp), a
                                     385 ;	lib/stm8s_spi.c: 213: if (((SPI->ICR & itpos) != RESET) && enablestatus)
       008554 AE 52 02         [ 2]  386 	ldw	x, #0x5202
       008557 F6               [ 1]  387 	ld	a, (x)
-      008558 14 03            [ 1]  388 	and	a, (0x03, sp)
+      008558 14 02            [ 1]  388 	and	a, (0x02, sp)
       00855A 4D               [ 1]  389 	tnz	a
       00855B 27 07            [ 1]  390 	jreq	00102$
       00855D 0D 01            [ 1]  391 	tnz	(0x01, sp)

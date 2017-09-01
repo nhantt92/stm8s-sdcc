@@ -4,27 +4,12 @@
   * @author  MCD Application Team
   * @version V2.2.0
   * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the AWU peripheral.
+  * @brief   This file contains all functions prototype and macros for the awu peripheral.
+  * @Date:   2016-03-29 14:06:05
+  * @Last Modified by:   nhantt
+  * @Last Modified time: 2017-03-21 23:07:13
    ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
-
+*/
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_AWU_H
 #define __STM8S_AWU_H
@@ -32,15 +17,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 
-/* Exported types ------------------------------------------------------------*/
-
-/** @addtogroup AWU_Exported_Types
-  * @{
-  */
-
-/**
-  * @brief  AWU TimeBase selection
-  */
+/* AWU TimeBase selection*/
 
 typedef enum
 {
@@ -63,38 +40,12 @@ typedef enum
   AWU_TIMEBASE_30S    = (uint8_t)16    /*!< AWU Timebase equals 30 s */
 } AWU_Timebase_TypeDef;
 
-/**
-  * @}
-  */
-
-/* Exported constants --------------------------------------------------------*/
-
-/** @addtogroup AWU_Exported_Constants
-  * @{
-  */
+/* AWU_Exported_Constants */
 
 #define LSI_FREQUENCY_MIN ((uint32_t)110000) /*!< LSI minimum value in Hertz */
 #define LSI_FREQUENCY_MAX ((uint32_t)150000) /*!< LSI maximum value in Hertz */
 
-/**
-  * @}
-  */
-
-/* Exported macros ------------------------------------------------------------*/
-
-/* Private macros ------------------------------------------------------------*/
-
-/** @addtogroup AWU_Private_Macros
-  * @{
-  */
-
-/**
-  * @brief  Macro used by the assert function to check the different functions parameters.
-  */
-
-/**
-  * @brief   Macro used by the assert function to check the AWU timebases
-  */
+/* Macro used by the assert function to check the AWU timebases */
 #define IS_AWU_TIMEBASE_OK(TB) \
   (((TB) == AWU_TIMEBASE_NO_IT) || \
    ((TB) == AWU_TIMEBASE_250US) || \
@@ -114,32 +65,18 @@ typedef enum
    ((TB) == AWU_TIMEBASE_12S)   || \
    ((TB) == AWU_TIMEBASE_30S))
 
-/**
-  * @brief    Macro used by the assert function to check the LSI frequency (in Hz)
-  */
+/* Macro used by the assert function to check the LSI frequency (in Hz) */
 #define IS_LSI_FREQUENCY_OK(FREQ) \
   (((FREQ) >= LSI_FREQUENCY_MIN) && \
    ((FREQ) <= LSI_FREQUENCY_MAX))
 
-/**
-  * @}
-  */
-
-/* Exported functions ------------------------------------------------------- */
-
-/** @addtogroup AWU_Exported_Functions
-  * @{
-  */
+/* AWU_Exported_Functions */
 void AWU_DeInit(void);
 void AWU_Init(AWU_Timebase_TypeDef AWU_TimeBase);
 void AWU_Cmd(FunctionalState NewState);
 void AWU_LSICalibrationConfig(uint32_t LSIFreqHz);
 void AWU_IdleModeEnable(void);
 FlagStatus AWU_GetFlagStatus(void);
-
-/**
-  * @}
-  */
 
 #endif /* __STM8S_AWU_H */
 

@@ -1,44 +1,18 @@
-/**
-  ******************************************************************************
-  * @file    stm8s_tim1.h
-  * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the TIM1 peripheral.
-   ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
+/*
+*******************************************
+* @file     stm8s_tim2.c
+* @author   nhantt
+* @version  V1.0.0
+* @date     1-September-2017
+* @brief    This file brief for save memory used build with SDCC
+*********************************************
+*/
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_TIM1_H
 #define __STM8S_TIM1_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
-
-/** @addtogroup STM8S_StdPeriph_Driver
-  * @{
-  */
-  
-/** @addtogroup TIM1_Exported_Types
- * @{
- */
 
 /** TIM1 Output Compare and PWM modes */
 
@@ -479,17 +453,8 @@ typedef enum
 
 #define IS_TIM1_FORCED_ACTION_OK(ACTION) (((ACTION) == TIM1_FORCEDACTION_ACTIVE) || \
     ((ACTION) == TIM1_FORCEDACTION_INACTIVE))
-/**
-  * @}
-  */
 
-/* Exported macro ------------------------------------------------------------*/
-
-/* Exported functions --------------------------------------------------------*/
-
-/** @addtogroup TIM1_Exported_Functions
-  * @{
-  */
+/* TIM1_Exported_Functions */
 
 void TIM1_DeInit(void);
 void TIM1_TimeBaseInit(uint16_t TIM1_Prescaler, 
@@ -609,15 +574,6 @@ void TIM1_ClearFlag(TIM1_FLAG_TypeDef TIM1_FLAG);
 ITStatus TIM1_GetITStatus(TIM1_IT_TypeDef TIM1_IT);
 void TIM1_ClearITPendingBit(TIM1_IT_TypeDef TIM1_IT);
 
-/**
-  * @}
-  */
-
 #endif /* __STM8S_TIM1_H */
-
-/**
-  * @}
-  */
-
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

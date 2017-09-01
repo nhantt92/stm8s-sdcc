@@ -211,9 +211,9 @@
                                     211 ;	lib/stm8s_clk.c: 99: clocksource = (CLK_Source_TypeDef)CLK->CMSR;
       0082B2 AE 50 C3         [ 2]  212 	ldw	x, #0x50c3
       0082B5 F6               [ 1]  213 	ld	a, (x)
-      0082B6 6B 05            [ 1]  214 	ld	(0x05, sp), a
+      0082B6 6B 01            [ 1]  214 	ld	(0x01, sp), a
                                     215 ;	lib/stm8s_clk.c: 100: if (clocksource == CLK_SOURCE_HSI)
-      0082B8 7B 05            [ 1]  216 	ld	a, (0x05, sp)
+      0082B8 7B 01            [ 1]  216 	ld	a, (0x01, sp)
       0082BA A1 E1            [ 1]  217 	cp	a, #0xe1
       0082BC 26 2C            [ 1]  218 	jrne	00105$
                                     219 ;	lib/stm8s_clk.c: 102: tmp = (uint8_t)(CLK->CKDIVR & CLK_CKDIVR_HSIDIV);
@@ -243,26 +243,26 @@
       0082DF 4B 00            [ 1]  243 	push	#0x00
       0082E1 CD 85 DC         [ 4]  244 	call	__divulong
       0082E4 5B 08            [ 2]  245 	addw	sp, #8
-      0082E6 1F 03            [ 2]  246 	ldw	(0x03, sp), x
+      0082E6 1F 04            [ 2]  246 	ldw	(0x04, sp), x
       0082E8 20 1A            [ 2]  247 	jra	00106$
       0082EA                        248 00105$:
                                     249 ;	lib/stm8s_clk.c: 107: else if ( clocksource == CLK_SOURCE_LSI)
-      0082EA 7B 05            [ 1]  250 	ld	a, (0x05, sp)
+      0082EA 7B 01            [ 1]  250 	ld	a, (0x01, sp)
       0082EC A1 D2            [ 1]  251 	cp	a, #0xd2
       0082EE 26 0B            [ 1]  252 	jrne	00102$
                                     253 ;	lib/stm8s_clk.c: 109: clockfrequency = LSI_VALUE;
       0082F0 AE F4 00         [ 2]  254 	ldw	x, #0xf400
-      0082F3 1F 03            [ 2]  255 	ldw	(0x03, sp), x
+      0082F3 1F 04            [ 2]  255 	ldw	(0x04, sp), x
       0082F5 90 AE 00 01      [ 2]  256 	ldw	y, #0x0001
       0082F9 20 09            [ 2]  257 	jra	00106$
       0082FB                        258 00102$:
                                     259 ;	lib/stm8s_clk.c: 113: clockfrequency = HSE_VALUE;
       0082FB AE 24 00         [ 2]  260 	ldw	x, #0x2400
-      0082FE 1F 03            [ 2]  261 	ldw	(0x03, sp), x
+      0082FE 1F 04            [ 2]  261 	ldw	(0x04, sp), x
       008300 90 AE 00 F4      [ 2]  262 	ldw	y, #0x00f4
       008304                        263 00106$:
                                     264 ;	lib/stm8s_clk.c: 115: return((uint32_t)clockfrequency);
-      008304 1E 03            [ 2]  265 	ldw	x, (0x03, sp)
+      008304 1E 04            [ 2]  265 	ldw	x, (0x04, sp)
       008306 5B 07            [ 2]  266 	addw	sp, #7
       008308 81               [ 4]  267 	ret
                                     268 	.area CODE

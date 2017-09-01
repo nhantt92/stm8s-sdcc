@@ -1,31 +1,15 @@
 /**
   ******************************************************************************
-  * @file    stm8s_itc.h
+  * @file    stm8s_ict.h
   * @author  MCD Application Team
   * @version V2.2.0
   * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the ITC peripheral.
-   ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
+  * @brief   This file contains all functions prototypes and macros for the ict peripheral.
+  * @Last Modified by:   nhantt
+  * @Last Modified time: 2017-03-22 23:07:13
   ******************************************************************************
   */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_ITC_H
 #define __STM8S_ITC_H
 
@@ -34,13 +18,7 @@
 
 /* Exported types ------------------------------------------------------------*/
 
-/** @addtogroup ITC_Exported_Types
-  * @{
-  */
-
-/**
-  * @brief  ITC Interrupt Lines selection
-  */
+/*ITC Interrupt Lines selection*/
 typedef enum {
   ITC_IRQ_TLI            = (uint8_t)0,   /*!< Software interrupt */
   ITC_IRQ_AWU            = (uint8_t)1,   /*!< Auto wake up from halt interrupt */
@@ -114,9 +92,7 @@ typedef enum {
   ITC_IRQ_EEPROM_EEC     = (uint8_t)24  /*!< Flash interrupt */
 } ITC_Irq_TypeDef;
 
-/**
-  * @brief  ITC Priority Levels selection
-  */
+/* ITC Priority Levels selection*/
 typedef enum {
   ITC_PRIORITYLEVEL_0 = (uint8_t)0x02, /*!< Software priority level 0 (cannot be written) */
   ITC_PRIORITYLEVEL_1 = (uint8_t)0x01, /*!< Software priority level 1 */
@@ -124,28 +100,12 @@ typedef enum {
   ITC_PRIORITYLEVEL_3 = (uint8_t)0x03  /*!< Software priority level 3 */
 } ITC_PriorityLevel_TypeDef;
 
-/**
-  * @}
-  */
-
 /* Exported constants --------------------------------------------------------*/
 
-/** @addtogroup ITC_Exported_Constants
-  * @{
-  */
+/*ITC_Exported_Constants */
 #define CPU_SOFT_INT_DISABLED ((uint8_t)0x28) /*!< Mask for I1 and I0 bits in CPU_CC register */
 
-/**
-  * @}
-  */
-
-/* Private macros ------------------------------------------------------------*/
-
-/**
-  * @brief  Macros used by the assert function in order to check the different functions parameters.
-  * @addtogroup ITC_Private_Macros
-  * @{
-  */
+/* ITC_Private_Macros */
 
 /* Used by assert function */
 #define IS_ITC_IRQ_OK(IRQ) ((IRQ) <= (uint8_t)24)
@@ -160,25 +120,15 @@ typedef enum {
 /* Used by assert function */
 #define IS_ITC_INTERRUPTS_DISABLED (ITC_GetSoftIntStatus() == CPU_SOFT_INT_DISABLED)
 
-/**
-  * @}
-  */
-
 /* Exported functions ------------------------------------------------------- */
 
-/** @addtogroup ITC_Exported_Functions
-  * @{
-  */
+/** ITC_Exported_Functions*/
 
 uint8_t ITC_GetCPUCC(void);
 void ITC_DeInit(void);
 uint8_t ITC_GetSoftIntStatus(void);
 void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue);
 ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum);
-
-/**
-  * @}
-  */
 
 #endif /* __STM8S_ITC_H */
 

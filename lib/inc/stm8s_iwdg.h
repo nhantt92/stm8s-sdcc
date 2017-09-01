@@ -10,43 +10,21 @@
   ******************************************************************************
   */
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_IWDG_H
 #define __STM8S_IWDG_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
-
-/** @addtogroup STM8S_StdPeriph_Driver
-  * @{
-  */
-
-/** @addtogroup IWDG_Private_Define
-  * @{
-  */
-
-/**
-  * @brief  Define used to prevent watchdog reset
-  */
+/* Define used to prevent watchdog reset */
 #define IWDG_KEY_REFRESH    ((uint8_t)0xAA)  /*!<  This value written in the Key register prevent the watchdog reset */
 
-/**
-  * @brief  Define used to start the watchdog counter down
-  */
+/* Define used to start the watchdog counter down */
 #define IWDG_KEY_ENABLE     ((uint8_t)0xCC)  /*!<  This value written in the Key register start the watchdog counting down*/
 
-/**
- * @}
- */
+/* IWDG_Private_Macros */
 
-/** @addtogroup IWDG_Private_Macros
-  * @{
-  */
-
-/**
-  * @brief  Macro used by the assert function in order to check the different
-  * values of the prescaler.
-  */
+/* Macro used by the assert function in order to check the different
+  * values of the prescaler. */
 #define IS_IWDG_PRESCALER_OK(VALUE) (((VALUE) == IWDG_Prescaler_4   ) || \
                                      ((VALUE) == IWDG_Prescaler_8   ) || \
                                      ((VALUE) == IWDG_Prescaler_16  ) || \
@@ -55,19 +33,11 @@
                                      ((VALUE) == IWDG_Prescaler_128 ) || \
                                      ((VALUE) == IWDG_Prescaler_256))
 
-/**
-  * @brief  Macro used by the assert function in order to check the different
-  * values of the counter register.
-  */
+/* Macro used by the assert function in order to check the different
+  * values of the counter register.*/
 #define IS_IWDG_WRITEACCESS_MODE_OK(MODE) (((MODE) == IWDG_WriteAccess_Enable) || ((MODE) == IWDG_WriteAccess_Disable))
 
-/**
-  * @}
-  */
-
-/** @addtogroup IWDG_Exported_Types
-  * @{
-  */
+/* IWDG_Exported_Types */
 
 /** IWDG write  access enumeration */
 typedef enum
@@ -88,13 +58,7 @@ typedef enum
   IWDG_Prescaler_256 = (uint8_t)0x06  /*!< Used to set prescaler register to 256 */
 } IWDG_Prescaler_TypeDef;
 
-/**
-  * @}
-  */
-
-/** @addtogroup IWDG_Exported_Functions
-  * @{
-  */
+/* IWDG_Exported_Functions */
 
 void IWDG_WriteAccessCmd(IWDG_WriteAccess_TypeDef IWDG_WriteAccess);
 void IWDG_SetPrescaler(IWDG_Prescaler_TypeDef IWDG_Prescaler);
@@ -102,15 +66,8 @@ void IWDG_SetReload(uint8_t IWDG_Reload);
 void IWDG_ReloadCounter(void);
 void IWDG_Enable(void);
 
-/**
-  * @}
-  */
-
 #endif /* __STM8S_IWDG_H */
 
-/**
-  * @}
-  */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

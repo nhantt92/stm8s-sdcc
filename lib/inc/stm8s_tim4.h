@@ -1,48 +1,18 @@
-/**
-  ******************************************************************************
-  * @file    stm8s_tim4.h
-  * @author  MCD Application Team
-  * @version V2.2.0
-  * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the TIM4 peripheral.
-   ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
+/*
+*******************************************
+* @file     stm8s_tim4.c
+* @author   nhantt
+* @version  V1.0.0
+* @date     1-September-2017
+* @brief    This file brief for save memory used build with SDCC
+*********************************************
+*/
 
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_TIM4_H
 #define __STM8S_TIM4_H
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
-
-/** @addtogroup STM8S_StdPeriph_Driver
-  * @{
-  */
-
-/* Exported types ------------------------------------------------------------*/
-
-/** @addtogroup TIM4_Exported_Types
-  * @{
-  */
-
-
 
 /** TIM4 Prescaler */
 typedef enum
@@ -122,16 +92,6 @@ typedef enum
 
 #define IS_TIM4_IT_OK(IT) ((IT) == TIM4_IT_UPDATE)
 
-
-
-/**
-  * @}
-  */
-
-/* Exported macro ------------------------------------------------------------*/
-
-/* Exported functions --------------------------------------------------------*/
-
 /** @addtogroup TIM4_Exported_Functions
   * @{
   */
@@ -153,17 +113,7 @@ FlagStatus TIM4_GetFlagStatus(TIM4_FLAG_TypeDef TIM4_FLAG);
 void TIM4_ClearFlag(TIM4_FLAG_TypeDef TIM4_FLAG);
 ITStatus TIM4_GetITStatus(TIM4_IT_TypeDef TIM4_IT);
 void TIM4_ClearITPendingBit(TIM4_IT_TypeDef TIM4_IT);
-
-
-/**
-  * @}
-  */
-
 #endif /* __STM8S_TIM4_H */
-
-/**
-  * @}
-  */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

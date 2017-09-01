@@ -358,7 +358,7 @@ _SPI_GetITStatus:
 	jrne	00115$
 00116$:
 	pop	a
-	ld	(0x03, sp), a
+	ld	(0x02, sp), a
 ;	lib/stm8s_spi.c: 207: itmask1 = (uint8_t)((uint8_t)SPI_IT >> (uint8_t)4);
 	ld	a, (0x06, sp)
 	swap	a
@@ -376,16 +376,16 @@ _SPI_GetITStatus:
 	jrne	00117$
 00118$:
 	pop	a
-	ld	(0x02, sp), a
+	ld	(0x03, sp), a
 ;	lib/stm8s_spi.c: 211: enablestatus = (uint8_t)((uint8_t)SPI->SR & itmask2);
 	ldw	x, #0x5203
 	ld	a, (x)
-	and	a, (0x02, sp)
+	and	a, (0x03, sp)
 	ld	(0x01, sp), a
 ;	lib/stm8s_spi.c: 213: if (((SPI->ICR & itpos) != RESET) && enablestatus)
 	ldw	x, #0x5202
 	ld	a, (x)
-	and	a, (0x03, sp)
+	and	a, (0x02, sp)
 	tnz	a
 	jreq	00102$
 	tnz	(0x01, sp)

@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V2.2.0
   * @date    30-September-2014
-  * @brief   This file contains all functions prototype and macros for the CLK peripheral.
+  * @brief   This file contains all functions prototype and macros for the adc peripheral.
   * @Date:   2016-03-29 14:06:05
   * @Last Modified by:   nhantt
   * @Last Modified time: 2017-03-21 23:07:13
@@ -18,15 +18,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 
-/* Exported types ------------------------------------------------------------*/
-
-/** @addtogroup ADC1_Exported_Types
-  * @{
-  */
-
-/**
-  * @brief  ADC1 clock prescaler selection
-  */
+/* ADC1 clock prescaler selection */
 
 typedef enum 
 {
@@ -40,27 +32,21 @@ typedef enum
   ADC1_PRESSEL_FCPU_D18 = (uint8_t)0x70  /**< Prescaler selection fADC1 = fcpu/18 */
 } ADC1_PresSel_TypeDef;
 
-/**
-  * @brief   ADC1 External conversion trigger event selection
-  */
+/* ADC1 External conversion trigger event selection */
 typedef enum 
 {
   ADC1_EXTTRIG_TIM   = (uint8_t)0x00, /**< Conversion from Internal TIM1 TRGO event */
   ADC1_EXTTRIG_GPIO  = (uint8_t)0x10  /**< Conversion from External interrupt on ADC_ETR pin*/
 } ADC1_ExtTrig_TypeDef;
 
-/**
-  * @brief  ADC1 data alignment
-  */
+/* ADC1 data alignment */
 typedef enum 
 {
   ADC1_ALIGN_LEFT  = (uint8_t)0x00, /**< Data alignment left */
   ADC1_ALIGN_RIGHT = (uint8_t)0x08  /**< Data alignment right */
 } ADC1_Align_TypeDef;
 
-/**
-  * @brief  ADC1 Interrupt source
-  */
+/* ADC1 Interrupt source */
 typedef enum 
 {
   ADC1_IT_AWDIE = (uint16_t)0x010, /**< Analog WDG interrupt enable */
@@ -82,9 +68,7 @@ typedef enum
 
 } ADC1_IT_TypeDef;
 
-/**
-  * @brief  ADC1 Flags
-  */
+/* ADC1 Flags */
 typedef enum 
 {
   ADC1_FLAG_OVR   = (uint8_t)0x41, /**< Overrun status flag */
@@ -105,9 +89,7 @@ typedef enum
 }ADC1_Flag_TypeDef;
 
 
-/**
-  * @brief  ADC1 schmitt Trigger
-  */
+/* ADC1 schmitt Trigger */
 typedef enum 
 {
   ADC1_SCHMITTTRIG_CHANNEL0  = (uint8_t)0x00, /**< Schmitt trigger disable on AIN0 */
@@ -125,9 +107,7 @@ typedef enum
   ADC1_SCHMITTTRIG_ALL       = (uint8_t)0xFF /**< Schmitt trigger disable on All channels */ 
 } ADC1_SchmittTrigg_TypeDef;
 
-/**
-  * @brief  ADC1 conversion mode selection
-  */
+/* ADC1 conversion mode selection */
 
 typedef enum 
 {
@@ -135,9 +115,7 @@ typedef enum
   ADC1_CONVERSIONMODE_CONTINUOUS = (uint8_t)0x01  /**< Continuous conversion mode */
 } ADC1_ConvMode_TypeDef;
 
-/**
-  * @brief  ADC1 analog channel selection
-  */
+/* ADC1 analog channel selection */
 
 typedef enum 
 {
@@ -155,24 +133,11 @@ typedef enum
                  /* refer to product datasheet for channel 12 availability */
 } ADC1_Channel_TypeDef;
 
-/**
-  * @}
-  */
+/* ADC1_Private_Macros
+  * Macros used by the assert function to check the different functions parameters.
+*/
 
-/* Exported constants --------------------------------------------------------*/
-
-/* Exported macros ------------------------------------------------------------*/
-
-/* Private macros ------------------------------------------------------------*/
-
-/** @addtogroup ADC1_Private_Macros
-  * @brief  Macros used by the assert function to check the different functions parameters.
-  * @{
-  */
-
-/**
-  * @brief  Macro used by the assert function to check the different prescaler's values.
-  */
+/* Macro used by the assert function to check the different prescaler's values.*/
 #define IS_ADC1_PRESSEL_OK(PRESCALER) (((PRESCALER) == ADC1_PRESSEL_FCPU_D2) || \
                                       ((PRESCALER) == ADC1_PRESSEL_FCPU_D3) || \
                                       ((PRESCALER) == ADC1_PRESSEL_FCPU_D4) || \
@@ -182,27 +147,19 @@ typedef enum
                                       ((PRESCALER) == ADC1_PRESSEL_FCPU_D12) || \
                                       ((PRESCALER) == ADC1_PRESSEL_FCPU_D18))
 
-/**
-  * @brief  Macro used by the assert function to check the different external trigger values.
-  */
+/* Macro used by the assert function to check the different external trigger values. */
 #define IS_ADC1_EXTTRIG_OK(EXTRIG) (((EXTRIG) == ADC1_EXTTRIG_TIM) || \
                                    ((EXTRIG) == ADC1_EXTTRIG_GPIO))
 
-/**
-  * @brief  Macro used by the assert function to check the different alignment modes.
-  */
+/* Macro used by the assert function to check the different alignment modes. */
 #define IS_ADC1_ALIGN_OK(ALIGN) (((ALIGN) == ADC1_ALIGN_LEFT) || \
                                 ((ALIGN) == ADC1_ALIGN_RIGHT))
 
-/**
-  * @brief  Macro used by the assert function to check the Interrupt source.
-  */
+/* Macro used by the assert function to check the Interrupt source.*/
 #define IS_ADC1_IT_OK(IT) (((IT) == ADC1_IT_EOCIE) || \
                           ((IT) == ADC1_IT_AWDIE))
 
-/**
-  * @brief  Macro used by the assert function to check the ADC1 Flag.
-  */
+/* Macro used by the assert function to check the ADC1 Flag. */
 #define IS_ADC1_FLAG_OK(FLAG) (((FLAG) == ADC1_FLAG_EOC)|| \
                               ((FLAG) == ADC1_FLAG_OVR) || \
                               ((FLAG) == ADC1_FLAG_AWD) || \
@@ -217,9 +174,7 @@ typedef enum
                               ((FLAG) == ADC1_FLAG_AWS8) || \
                               ((FLAG) == ADC1_FLAG_AWS9))
 
-/**
-  * @brief  Macro used by the assert function to check the ADC1 pending bits.
-  */
+/* Macro used by the assert function to check the ADC1 pending bits. */
 #define IS_ADC1_ITPENDINGBIT_OK(ITPENDINGBIT) (((ITPENDINGBIT) == ADC1_IT_EOC) || \
     ((ITPENDINGBIT) == ADC1_IT_AWD) || \
     ((ITPENDINGBIT) == ADC1_IT_AWS0) || \
@@ -234,9 +189,7 @@ typedef enum
     ((ITPENDINGBIT) == ADC1_IT_AWS12) || \
     ((ITPENDINGBIT) == ADC1_IT_AWS9))
 
-/**
-  * @brief  Macro used by the assert function to check the different schmitt trigger values.
-  */
+/* Macro used by the assert function to check the different schmitt trigger values. */
 #define IS_ADC1_SCHMITTTRIG_OK(SCHMITTTRIG) (((SCHMITTTRIG) == ADC1_SCHMITTTRIG_CHANNEL0) || \
     ((SCHMITTTRIG) == ADC1_SCHMITTTRIG_CHANNEL1) || \
     ((SCHMITTTRIG) == ADC1_SCHMITTTRIG_CHANNEL2) || \
@@ -250,15 +203,11 @@ typedef enum
     ((SCHMITTTRIG) == ADC1_SCHMITTTRIG_ALL) || \
     ((SCHMITTTRIG) == ADC1_SCHMITTTRIG_CHANNEL9))
 
-/**
-  * @brief  Macro used by the assert function to check the different conversion modes.
-  */
+/* Macro used by the assert function to check the different conversion modes. */
 #define IS_ADC1_CONVERSIONMODE_OK(MODE) (((MODE) == ADC1_CONVERSIONMODE_SINGLE) || \
                                         ((MODE) == ADC1_CONVERSIONMODE_CONTINUOUS))
 
-/**
-  * @brief  Macro used by the assert function to check the different channels values.
-  */
+/* Macro used by the assert function to check the different channels values. */
 #define IS_ADC1_CHANNEL_OK(CHANNEL) (((CHANNEL) == ADC1_CHANNEL_0) || \
                                     ((CHANNEL) == ADC1_CHANNEL_1) || \
                                     ((CHANNEL) == ADC1_CHANNEL_2) || \
@@ -271,20 +220,10 @@ typedef enum
                                     ((CHANNEL) == ADC1_CHANNEL_12) || \
                                     ((CHANNEL) == ADC1_CHANNEL_9))
 
-/**
-  * @brief  Macro used by the assert function to check the possible buffer values.
-  */
+/* Macro used by the assert function to check the possible buffer values. */
 #define IS_ADC1_BUFFER_OK(BUFFER) ((BUFFER) <= (uint8_t)0x09)
 
-/**
-  * @}
-  */
-
-/* Exported functions ------------------------------------------------------- */
-
-/** @addtogroup ADC1_Exported_Functions
-  * @{
-  */
+/* ADC1_Exported_Functions */
 void ADC1_DeInit(void);
 void ADC1_Init(ADC1_ConvMode_TypeDef ADC1_ConversionMode, 
                ADC1_Channel_TypeDef ADC1_Channel,
@@ -315,9 +254,6 @@ FlagStatus ADC1_GetFlagStatus(ADC1_Flag_TypeDef Flag);
 void ADC1_ClearFlag(ADC1_Flag_TypeDef Flag);
 ITStatus ADC1_GetITStatus(ADC1_IT_TypeDef ITPendingBit);
 void ADC1_ClearITPendingBit(ADC1_IT_TypeDef ITPendingBit);
-/**
-  * @}
-  */
 
 #endif /* __STM8S_ADC1_H */
 

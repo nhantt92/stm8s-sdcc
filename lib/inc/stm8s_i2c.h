@@ -4,26 +4,12 @@
   * @author  MCD Application Team
   * @version V2.2.0
   * @date    30-September-2014
-  * @brief  This file contains all functions prototype and macros for the I2C peripheral.
+  * @brief   This file contains all functions prototype and macros for the i2c peripheral.
+  * @Date:   2016-03-29 14:06:05
+  * @Last Modified by:   nhantt
+  * @Last Modified time: 2017-03-21 23:07:13
    ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 STMicroelectronics</center></h2>
-  *
-  * Licensed under MCD-ST Liberty SW License Agreement V2, (the "License");
-  * You may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at:
-  *
-  *        http://www.st.com/software_license_agreement_liberty_v2
-  *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  *
-  ******************************************************************************
-  */
+*/
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __STM8S_I2C_H
@@ -32,24 +18,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 
-/* Exported types ------------------------------------------------------------*/
 
-/** @addtogroup I2C_Exported_Types
-  * @{
-  */
-
-/**
-  * @brief  I2C duty cycle (fast mode only)
-  */
+/* I2C duty cycle (fast mode only) */
 typedef enum
 {
   I2C_DUTYCYCLE_2    = (uint8_t)0x00,  /*!< Fast mode Tlow/THigh = 2 */
   I2C_DUTYCYCLE_16_9 = (uint8_t)0x40   /*!< Fast mode Tlow/Thigh = 16/9 */
 } I2C_DutyCycle_TypeDef;
 
-/**
-  * @brief  I2C Acknowledgement configuration
-  */
+/* I2C Acknowledgement configuration */
 typedef enum
 {
   I2C_ACK_NONE = (uint8_t)0x00,  /*!< No acknowledge */
@@ -57,19 +34,16 @@ typedef enum
   I2C_ACK_NEXT = (uint8_t)0x02   /*!< Acknowledge on the next byte */
 } I2C_Ack_TypeDef;
 
-/**
-  * @brief  I2C Addressing Mode (slave mode only)
-  */
+/* I2C Addressing Mode (slave mode only) */
 typedef enum
 {
   I2C_ADDMODE_7BIT  = (uint8_t)0x00,  /*!< 7-bit slave address (10-bit address not acknowledged) */
   I2C_ADDMODE_10BIT = (uint8_t)0x80   /*!< 10-bit slave address (7-bit address not acknowledged) */
 } I2C_AddMode_TypeDef;
 
-/**
-  * @brief  I2C Interrupt sources
+/* I2C Interrupt sources
   * Warning: the values correspond to the bit position in the ITR register
-  */
+*/
 typedef enum
 {
     I2C_IT_ERR     = (uint8_t)0x01, 	/*!< Error Interruption */
@@ -77,25 +51,24 @@ typedef enum
     I2C_IT_BUF     = (uint8_t)0x04 	/*!< Buffer Interruption */
 } I2C_IT_TypeDef;
 
-/**
-  * @brief  I2C transfer direction
+/* I2C transfer direction
   * Warning: the values correspond to the ADD0 bit position in the OARL register
-  */
+*/
 typedef enum
 {
   I2C_DIRECTION_TX = (uint8_t)0x00,  /*!< Transmission direction */
   I2C_DIRECTION_RX = (uint8_t)0x01   /*!< Reception direction */
 } I2C_Direction_TypeDef;
 
-/**
-  * @brief  I2C Flags
-  * @brief Elements values convention: 0xXXYY
+/*
+  * I2C Flags
+  * Elements values convention: 0xXXYY
   *  X = SRx registers index
   *      X = 1 : SR1
   *      X = 2 : SR2
   *      X = 3 : SR3
   *  Y = Flag mask in the register
-  */
+*/
 
 typedef enum
 {
@@ -122,8 +95,8 @@ typedef enum
   I2C_FLAG_MASTERSLAVE         = (uint16_t)0x0301   /*!< Master Slave Flag */
 } I2C_Flag_TypeDef;
 
-/**
-  * @brief I2C Pending bits
+/*
+  * I2C Pending bits
   * Elements values convention: 0xXYZZ
   *  X = SRx registers index
   *      X = 1 : SR1
@@ -151,8 +124,8 @@ typedef enum
     I2C_ITPENDINGBIT_BUSERROR            = (uint16_t)0x2101  	/*!< Misplaced Start or Stop condition */
 } I2C_ITPendingBit_TypeDef;
 
-/**
-  * @brief I2C possible events
+/*
+  * I2C possible events
   * Values convention: 0xXXYY
   * XX = Event SR3 corresponding value
   * YY = Event SR1 corresponding value
