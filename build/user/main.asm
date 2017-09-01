@@ -106,14 +106,14 @@ __sdcc_program_startup:
 ; code
 ;--------------------------------------------------------
 	.area CODE
-;	user/main.c: 18: void main(void)
+;	user/main.c: 17: void main(void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	user/main.c: 20: CLK_Config();
+;	user/main.c: 19: CLK_Config();
 	call	_CLK_Config
-;	user/main.c: 21: while(1)
+;	user/main.c: 20: while(1)
 00102$:
 	jra	00102$
 	ret

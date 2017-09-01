@@ -21,7 +21,6 @@ Area                                    Addr        Size        Decimal Bytes (A
      00000003  l_GSFINAL                       
      00000009  l_DATA                          
      0000000A  s_INITIALIZED                   
-     0000000A  s_SSEG                          
      0000001A  l_GSINIT                        
      00000083  l_HOME                          
      00000596  l_CODE                          
@@ -30,6 +29,7 @@ Area                                    Addr        Size        Decimal Bytes (A
      0000809D  s_GSFINAL                       
      000080A0  s_CODE                          
      00008636  s_INITIALIZER                   
+     00008636  s_SSEG                          
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
@@ -50,7 +50,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-SSEG                                0000000A    00000001 =           1. bytes (REL,CON)
+HOME                                00008000    00000083 =         131. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -59,7 +59,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-HOME                                00008000    00000083 =         131. bytes (REL,CON)
+GSINIT                              00008083    0000001A =          26. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -68,20 +68,11 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT                              00008083    0000001A =          26. bytes (REL,CON)
-
-      Value  Global                              Global Defined In Module
-      -----  --------------------------------   ------------------------
-ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
-Hexadecimal  [32-Bits]
-
-Area                                    Addr        Size        Decimal Bytes (Attributes)
---------------------------------        ----        ----        ------- ----- ------------
 GSFINAL                             0000809D    00000003 =           3. bytes (REL,CON)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 6.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -140,7 +131,7 @@ CODE                                000080A0    00000596 =        1430. bytes (R
      000085BE  _TIM4_GetFlagStatus                stm8s_tim4
      000085CC  _TIM4_ClearFlag                    stm8s_tim4
      000085D4  _TIM4_ClearITPendingBit            stm8s_tim4
-ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
@@ -150,10 +141,20 @@ CODE                                000080A0    00000596 =        1430. bytes (R
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
      000085DC  __divulong                         
+ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+SSEG                                00008636    00000001 =           1. bytes (REL,CON)
+
+      Value  Global                              Global Defined In Module
+      -----  --------------------------------   ------------------------
 ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
 
 Files Linked                              [ module(s) ]
 
+build/user/dht.rel                        [ dht ]
 build/user/main.rel                       [ main ]
 build/user/timerTick.rel                  [ timerTick ]
 build/lib/stm8s_clk.rel                   [ stm8s_clk ]

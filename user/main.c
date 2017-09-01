@@ -13,7 +13,6 @@
 #include "main.h"
 #include "stm8s_gpio.h"
 #include "stm8s_clk.h"
-#include "clk.h"
 
 void main(void)
 {

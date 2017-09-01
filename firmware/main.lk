@@ -6,6 +6,7 @@
 -k c:\Program Files\SDCC\bin\..\lib\stm8
 -l stm8
 -l stm8
+build/user/dht.rel
 build/user/main.rel
 build/user/timerTick.rel
 build/lib/stm8s_clk.rel

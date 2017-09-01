@@ -22,8 +22,8 @@
                                      22 ; Stack segment in internal ram 
                                      23 ;--------------------------------------------------------
                                      24 	.area	SSEG
-      00000A                         25 __start__stack:
-      00000A                         26 	.ds	1
+      008636                         25 __start__stack:
+      008636                         26 	.ds	1
                                      27 
                                      28 ;--------------------------------------------------------
                                      29 ; absolute external ram data
@@ -106,14 +106,14 @@
                                     106 ; code
                                     107 ;--------------------------------------------------------
                                     108 	.area CODE
-                                    109 ;	user/main.c: 18: void main(void)
+                                    109 ;	user/main.c: 17: void main(void)
                                     110 ;	-----------------------------------------
                                     111 ;	 function main
                                     112 ;	-----------------------------------------
       0080A0                        113 _main:
-                                    114 ;	user/main.c: 20: CLK_Config();
+                                    114 ;	user/main.c: 19: CLK_Config();
       0080A0 CD 81 D2         [ 4]  115 	call	_CLK_Config
-                                    116 ;	user/main.c: 21: while(1)
+                                    116 ;	user/main.c: 20: while(1)
       0080A3                        117 00102$:
       0080A3 20 FE            [ 2]  118 	jra	00102$
       0080A5 81               [ 4]  119 	ret
